@@ -136,7 +136,7 @@ let win = new Gtk.Window();
         default:
             clock_text_print = hour_text + " : " + min_text + " : " + sec_text + ampm_text;
         }
-        win.texttopleft.set_markup("<span foreground='" + setting_clock_color + "' font_desc='" + setting_clock_font + "'>" + clock_text_print + "</span>");
+        
 
         let date_text_print;
         switch (setting_date_fomat) {
@@ -152,7 +152,8 @@ let win = new Gtk.Window();
         default:
             date_text_print = dayweek[parseInt(now.format("%w"))] + " " + datemonthinyear[(parseInt(now.format("%m")) - 1)] + " " + now.format("%d");
         }
-        win.textbottomleft.set_markup("<span foreground='" + setting_date_color + "' font_desc='" + setting_date_font + "'>" + date_text_print + "</span>");
+        win.texttopleft.set_markup("<span foreground='" + setting_clock_color + "' font_desc='" + setting_clock_font + "'>" + date_text_print + "</span>");
+        win.textbottomleft.set_markup("<span foreground='" + setting_date_color + "' font_desc='" + setting_date_font + "'>" + clock_text_print + "</span>");
 
         return true;
   }
